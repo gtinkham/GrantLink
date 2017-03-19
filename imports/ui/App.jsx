@@ -17,8 +17,7 @@ class App extends Component{
             Meteor.call('links.getLink', potentialRoute,
                 (err, link) => {
                     if(!err) {
-                        console.log(link);
-                        console.log(link.original);
+                        Meteor.call('links.wasClicked', link.shortened, link.timesClicked);
                         //router switch current directory
 
                         return;

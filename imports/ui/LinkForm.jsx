@@ -30,19 +30,33 @@ export default class LinkForm extends Component {
 
     render() {
         return (
-            <form className="container" onSubmit={this.handleSubmit}>
-                <div className="formItem">
-                    <h3>Shorten Link</h3>
+            <div className="container">
+                <div className="row">
+                    <div className="col-xs-6">
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="formItem">
+                                <h3>Shorten Link</h3>
+                            </div>
+                            <div className="formItem">
+                                <label>
+                                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                                </label>
+                            </div>
+                            <div className="formItem">
+                                <input type="submit" value="Enter Link" />
+                            </div>
+                        </form>
+                    </div>
+                    <div className="col-xs-6 targetDiv">
+                            <h3>This is the shortened link</h3>
+                            <div id="shortenedTarget">
+                                Please Enter URL to shorten
+                            </div>
+                    </div>
                 </div>
-                <div className="formItem">
-                    <label>
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                </div>
-                <div className="formItem">
-                    <input type="submit" value="Enter Link" />
-                </div>
-            </form>
+
+            </div>
+
         );
     }
 }

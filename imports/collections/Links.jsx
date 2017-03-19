@@ -27,7 +27,14 @@ Meteor.methods({
             return {original,timesClicked, shortened:possibleLink._id};
         }
         else{
-            return {original:"/home"};
+            return {original:"/"};
         }
+    },
+    'links.wasClicked'(linkId, clicked) {
+        check(linkId, String);
+        check(clicked, Number);
+        clicked += 1;
+        Links.update(linkId,{$set:{timesClicked:clicked}});
+
     }
 });

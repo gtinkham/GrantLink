@@ -49,3 +49,11 @@ ul{
 .timesClicked {
     color:black;
 }
+
+.targetDiv {
+    padding-top:12px;
+}
+
+#shortenedTarget {
+    padding-top: 20px;
+}
