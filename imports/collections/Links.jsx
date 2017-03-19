@@ -21,6 +21,13 @@ Meteor.methods({
     },
     'links.getLink'(link) {
         check(link, String);
-        // Links.find({this._id})
+        const possibleLink = Links.findOne(link);
+        if(possibleLink) {
+            const {original, timesClicked} = possibleLink;
+            return {original,timesClicked, shortened:possibleLink._id};
+        }
+        else{
+            return {original:"/home"};
+        }
     }
 });

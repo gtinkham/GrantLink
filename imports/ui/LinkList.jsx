@@ -26,11 +26,11 @@ class LinkList extends Component{
 
     render() {
         return (
-        <ul>
+        <ul className="shortLinks">
             <li className="linkHeader">
-                <div className="col-md-4 linkTitle">Original Link</div>
-                <div className="col-md-4 linkTitle">Shortened Link</div>
-                <div className="col-md-4 linkTitle">Times Clicked</div>
+                <div className="col-xs-4">Original Link</div>
+                <div className="col-xs-4">Shortened Link</div>
+                <div className="col-xs-4">Times Clicked</div>
             </li>
             {this.renderLinks()}
         </ul>

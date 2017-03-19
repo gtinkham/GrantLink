@@ -32,10 +32,10 @@ export default class LinkForm extends Component {
         return (
             <form className="container" onSubmit={this.handleSubmit}>
                 <div className="formItem">
+                    <h3>Shorten Link</h3>
+                </div>
+                <div className="formItem">
                     <label>
-                        <p>
-                            Shorten Link Here:
-                        </p>
                         <input type="text" value={this.state.value} onChange={this.handleChange} />
                     </label>
                 </div>

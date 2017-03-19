@@ -15,6 +15,7 @@ body{
 
 .linkHeader{
     flex: auto;
+    padding-bottom:60px;
 }
 
 li div {
@@ -31,3 +32,20 @@ ul{
     display: flex;
 }
 
+.link{
+    font-size:20px;
+}
+
+.shortLinks{
+    padding-top: 50px;
+}
+
+.shortened {
+    color: blue;
+}
+.original {
+    color: red;
+}
+.timesClicked {
+    color:black;
+}
