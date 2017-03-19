@@ -1,8 +1,18 @@
 /* CSS declarations go here */
-
-#header{
-    margin:10px;
+.linkColumn {
+    text-align: center;
+    text-decoration: underline;
 }
-#linkForm{
-    margin:10px;
+
+body{
+    padding-top: 70px;
+
+}
+
+.formItem{
+    display: inline-block;
+}
+
+.linkHeader{
+    font-size:30px;
 }
