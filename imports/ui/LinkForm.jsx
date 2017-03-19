@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import Links from '../collections/Links';
 
@@ -23,6 +24,8 @@ export default class LinkForm extends Component {
         if((original.length > 0)) {
             Meteor.call('links.insert', original);
         }
+
+        this.setState({value: ''});
     }
 
     render() {

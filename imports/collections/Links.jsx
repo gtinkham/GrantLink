@@ -1,27 +1,26 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
 export const Links = new Mongo.Collection('links');
 
+if(Meteor.isServer) {
+    Meteor.publish('links', function linkPublication() {
+       return Links.find({});
+    });
+}
 
 Meteor.methods({
 
     'links.insert'(link){
         check(link, String);
-        let itemId = link._id;
         Links.insert({
             original:link,
-            shortened: itemId,
             timesClicked: 0
         });
-
-        return itemId;
     },
     'links.getLink'(link) {
-
         check(link, String);
-
-        // Links.find()
+        // Links.find({this._id})
     }
-
 });

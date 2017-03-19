@@ -14,5 +14,15 @@ body{
 }
 
 .linkHeader{
+    flex: auto;
+}
+
+li div {
+    flex-wrap: wrap;
+    text-align: center;
+}
+ul{
+    list-style: none;
     font-size:30px;
 }
+
