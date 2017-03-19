@@ -13,16 +13,15 @@ class LinkList extends Component{
     renderLinks() {
         let linkCriteria = this.props.linkCriteria;
         return linkCriteria.map((link) => {
-            let linkProps = {
-                shortened:link._id,
-                original:link.original,
-                timesClicked:link.timesClicked
-            };
-            return (
-                <Link key={link._id}  linkProps={linkProps}/>
-            );
+                let linkProps = {
+                    shortened:link._id,
+                    original:link.original,
+                    timesClicked:link.timesClicked
+                };
+                    return (
+                        <Link key={link._id}  linkProps={linkProps}/>
+                    );
         });
-
     }
 
     render() {

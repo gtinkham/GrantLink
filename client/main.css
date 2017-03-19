@@ -26,3 +26,8 @@ ul{
     font-size:30px;
 }
 
+.formItem{
+    margin:12px;
+    display: flex;
+}
+
