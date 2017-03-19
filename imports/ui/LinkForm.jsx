@@ -20,8 +20,9 @@ export default class LinkForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         let original = this.state.value;
-        console.log("This is the current value ");
-        console.log(original);
+        if((original.length > 0)) {
+            Meteor.call('links.insert', original);
+        }
     }
 
     render() {
