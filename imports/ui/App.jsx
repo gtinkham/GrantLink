@@ -19,8 +19,9 @@ class App extends Component{
                     if(!err) {
                         Meteor.call('links.wasClicked', link.shortened, link.timesClicked);
                         //router switch current directory
-
-                        return;
+                        if(link.original.includes("https")) {
+                            window.location.replace(link.original);
+                        }
                     }
                 }
             );

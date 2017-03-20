@@ -18,6 +18,7 @@ Meteor.methods({
             original:link,
             timesClicked: 0
         });
+        return Links.findOne({original:link})._id;
     },
     'links.getLink'(link) {
         check(link, String);
@@ -35,6 +36,5 @@ Meteor.methods({
         check(clicked, Number);
         clicked += 1;
         Links.update(linkId,{$set:{timesClicked:clicked}});
-
     }
 });
