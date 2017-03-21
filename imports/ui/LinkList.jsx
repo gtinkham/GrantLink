@@ -22,7 +22,11 @@ class LinkList extends Component{
                         <Link key={link._id}  linkProps={linkProps}/>
                     );
         });
-    }
+    };
+
+    handleClick() {
+        console.log("this is a button");
+    };
 
     render() {
         return (
@@ -33,6 +37,10 @@ class LinkList extends Component{
                 <div className="col-xs-4">Times Clicked</div>
             </li>
             {this.renderLinks()}
+            <button onClick={(e) => this.handleClick(e)}
+                        className="btn btn-default listRefresh">
+                Load More
+            </button>
         </ul>
         );
     };

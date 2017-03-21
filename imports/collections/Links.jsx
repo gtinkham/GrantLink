@@ -11,7 +11,6 @@ if(Meteor.isServer) {
 }
 
 Meteor.methods({
-
     'links.insert'(link){
         check(link, String);
         Links.insert({
@@ -25,7 +24,7 @@ Meteor.methods({
         const possibleLink = Links.findOne(link);
         if(possibleLink) {
             const {original, timesClicked} = possibleLink;
-            return {original,timesClicked, shortened:possibleLink._id};
+            return {original,timesClicked, shortened: possibleLink._id};
         }
         else{
             return {original:"/"};
