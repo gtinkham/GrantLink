@@ -38,7 +38,7 @@ class LinkList extends Component{
             </li>
             {this.renderLinks()}
             <button onClick={(e) => this.handleClick(e)}
-                        className="btn btn-default listRefresh">
+                        className="btn btn-default refreshButton">
                 Load More
             </button>
         </ul>
