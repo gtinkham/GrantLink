@@ -26,8 +26,6 @@ export default class LinkForm extends Component {
             Meteor.call('links.insert', original,
                 (err, linkId) => {
                     this.setState({defaultShort:linkId});
-                    // console.log(this.state.defaultShort);
-
                 }
             );
 

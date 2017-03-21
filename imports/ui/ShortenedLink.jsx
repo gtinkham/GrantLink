@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 const ShortenedLink = (props) => {
         const defaultShort = props.defaultShort;
         let label = "";
-        if(props.defaultShort != undefined) {
-                label = props.defaultShort;
+        if(defaultShort != undefined) {
+                label = "localhost:3000/" + defaultShort;
         }
 
         return(
