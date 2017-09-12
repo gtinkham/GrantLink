@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 
  const Link = ({linkProps}) => {
-   const {original, shortened, timesClicked} = linkProps;
+   const {url, randomLink, clicks} = linkProps;
 
        return (
-           <li className="link">
-               <div className="col-xs-4 original">{ original }</div>
-               <div className="col-xs-4 shortened"><a href={ "/" + shortened} >{ shortened } </a></div>
-               <div className="col-xs-4 timesClicked">{ timesClicked }</div>
-           </li>
+           <tr className="row link">
+               <td className="col-xs-4 original">{ url }</td>
+               <td className="col-xs-4 shortened"><a href={ "localhost:3000/"+randomLink } > localhost:3000/{ randomLink } </a></td>
+               <td className="col-xs-4 timesClicked">{ clicks }</td>
+           </tr>
        );
 };
 

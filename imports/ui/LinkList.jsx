@@ -11,37 +11,29 @@ class LinkList extends Component{
     }
 
     renderLinks() {
-        let linkCriteria = this.props.linkCriteria;
+        const linkCriteria = this.props.linkCriteria;
         return linkCriteria.map((link) => {
-                let linkProps = {
-                    shortened:link._id,
-                    original:link.original,
-                    timesClicked:link.timesClicked
-                };
-                    return (
-                        <Link key={link._id}  linkProps={linkProps}/>
-                    );
+            return (
+                <Link key={link.randomLink}  linkProps={link}/>
+            );
         });
-    };
-
-    handleClick() {
-        console.log("this is a button");
     };
 
     render() {
         return (
-        <ul className="shortLinks">
-            <li className="linkHeader">
-                <div className="col-xs-4">Original Link</div>
-                <div className="col-xs-4">Shortened Link</div>
-                <div className="col-xs-4">Times Clicked</div>
-            </li>
-            {this.renderLinks()}
-            <button onClick={(e) => this.handleClick(e)}
-                        className="btn btn-default refreshButton">
-                Load More
-            </button>
-        </ul>
+        <table className="container">
+            <thead className="shortLinks">
+            <tr className="row">
+                <th className="col-xs-4">Original Link</th>
+                <th className="col-xs-4">Shortened Link</th>
+                <th className="col-xs-4">Times Clicked</th>
+            </tr>
+            </thead>
+            <tbody>
+                {this.renderLinks()}
+            </tbody>
+        </table>
+
         );
     };
 }
@@ -52,6 +44,5 @@ LinkList.propTypes = {
 
 export default createContainer(() => {
     Meteor.subscribe('links');
-
     return {linkCriteria: Links.find({}).fetch()};
 }, LinkList);

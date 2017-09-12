@@ -10,29 +10,13 @@ class App extends Component{
         super(props);
     }
 
-    componentWillMount() {
-        let currentLocation = this.props.history.location;
-        if(currentLocation.pathname !== "/") {
-            let potentialRoute = currentLocation.pathname.replace("/", "");
-            Meteor.call('links.getLink', potentialRoute,
-                (err, link) => {
-                    if(!err) {
-                        Meteor.call('links.wasClicked', link.shortened, link.timesClicked);
-                        //router switch current directory
-                        if(link.original.includes("https")) {
-                            window.location.replace(link.original);
-                        }
-                    }
-                }
-            );
-        }
-    }
-
     render () {
         return (
             <div>
                 <Header />
                 <LinkForm />
+                <br/>
+                <br/>
                 <LinkList />
             </div>
         );

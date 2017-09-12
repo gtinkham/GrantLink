@@ -1,39 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';
+import { check, Match } from 'meteor/check';
+import validUrl from 'valid-url';
 
 export const Links = new Mongo.Collection('links');
 
-if(Meteor.isServer) {
-    Meteor.publish('links', function linkPublication() {
-       return Links.find({});
-    });
-}
-
 Meteor.methods({
-    'links.insert'(link){
-        check(link, String);
-        Links.insert({
-            original:link,
-            timesClicked: 0
-        });
-        return Links.findOne({original:link})._id;
-    },
-    'links.getLink'(link) {
-        check(link, String);
-        const possibleLink = Links.findOne(link);
-        if(possibleLink) {
-            const {original, timesClicked} = possibleLink;
-            return {original,timesClicked, shortened: possibleLink._id};
-        }
-        else{
-            return {original:"/"};
-        }
-    },
-    'links.wasClicked'(linkId, clicked) {
-        check(linkId, String);
-        check(clicked, Number);
-        clicked += 1;
-        Links.update(linkId,{$set:{timesClicked:clicked}});
+    'links.insert'(url){
+        check(url, Match.Where(url => validUrl.isUri(url)));
+        const randomLink = Math.random().toString(36).slice(-5);
+        Links.insert({url, randomLink, clicks: 0});
     }
 });
